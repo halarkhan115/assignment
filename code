@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignmnt</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo base_url('/style.css') ?>">
+</head>
+
+<body>
+  
+     <script>
+     function button(){
+var namecity=document.querySelector('#cityName').value;
+console.log(namecity);
+
+var temp=document.querySelector('.city');
+var desc=document.querySelector('.temperature');
+fetch('http://api.openweathermap.org/data/2.5/weather?q='+namecity+'&appid=762578e4b2fd52db9196d8076dd3203f')
+  .then((Response)=>{
+      return Response.json();
+  })
+  .then(data =>{
+      console.log(data);
+      var nameValue=data['name'];
+      var temperature=data['main']['temp'];
+    //   console.log(nameValue+description+temperature);
+    city.innerHTML='Name: '+nameValue;
+    temp.innerHTML='Temperature: '+temperature+'F';
+  })
+}
+</script>   
+            
+
+
+
+
+        <div class="row no-gutters border brdr space">
+            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                <br>
+                <img src="<?PHP echo base_url('/assets/img/clock.png') ?>" width='200px' height='210px'>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 text-center  notranslate">
+                <h3 class="heading ">Time</h3>
+                <!-- <span>Search Only Asian City Time</span>
+                <input type="text" class="form-control" id="cityTime" placeholder="Enter city "> -->
+                <input type="button" value="Check Current Time" onclick="getCityTime()" class="btn btn-sm btn-danger bttn">
+                <p class="displayTime">
+                    
+
+                </p>
+            </div>
+        </div>
+
+
+
+
+        <div class="no-border">
+            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                <h3 class="notranslate heading ">Google Map</h3><br>
+                <div><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d115348.31208699707!2d68.2968658!3d25.3835549!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c70f6d444f3c3%3A0xc00bbc183d41e285!2sHyderabad%2C%20Sindh!5e0!3m2!1sen!2s!4v1613222955093!5m2!1sen!2s" width="800" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+            </div>
+
+        </div>
+
+
+        </div>
+
+    </div>
+    <div class="no-border">
+            <div class="col-sm-6 col-md-6 col-lg-6 text-center ">
+                <h3 class="heading ">Weather</h3>
+                <input type="text" class="form-control" id="cityName"  placeholder="Enter city ">
+                <input type="button" value="Check" id="button" onclick="btnn()" class="btn btn-sm btn-danger bttn">
+                <br><br>
+                <div class="weather">
+                    <p class="city"></p>
+                    <p class="temp"></p>
+                    
+                </div>
+            </div>
+
+</body>
+
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en'
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</html>
