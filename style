@@ -1,0 +1,15 @@
+*{
+.heading{
+    color: black;
+    padding-top:10px;
+    padding-bottom: 25px;
+}
+.brdr{
+    color: white;
+    border:1px solid blue;
+    
+}
+.butotn{
+    color:red;
+    margin-top: 2px;
+}
